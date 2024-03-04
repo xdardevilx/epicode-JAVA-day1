@@ -3,43 +3,46 @@ import java.util.Scanner;
 public class esercizio3 {
 
     public static void main(String[] args) {
-        int calcoloPerimetroRettangolo = perimetroRettangolo();
-        System.out.println("Il perimetro del rettangolo è: " + calcoloPerimetroRettangolo);
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Inserisci un numero");
-        int numero = sc.nextInt();
-        int calcoloPariDispari = pariDispari(numero);
-        System.out.println("Il numero è pari: " + calcoloPariDispari);
-        sc.close();
 
-    }
-
-    public static int perimetroRettangolo() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Inserisci l'altezza del rettangolo");
         int altezza = sc.nextInt();
         System.out.println("Inserisci la larghezza del rettangolo");
         int larghezza = sc.nextInt();
+        int calcoloPerimetroRettangolo = perimetroRettangolo(altezza, larghezza);
+        System.out.println("Il perimetro del rettangolo è: " + calcoloPerimetroRettangolo);
+
+        System.out.println("Inserisci un numero");
+        int numero = sc.nextInt();
+
+        int calcoloPariDispari = pariDispari(numero);
+        System.out.println("Il numero inserito è pari? " + calcoloPariDispari);
+
+        System.out.println("Inserisci la base del triangolo");
+        int base = sc.nextInt();
+        System.out.println("Inserisci l'altezza del triangolo");
+        int altezza2 = sc.nextInt();
+        int calcoloPerimetroTriangolo = perimetroTriangolo(base, altezza2);
+        System.out.println("l'area del triangolo è: " + calcoloPerimetroTriangolo);
+
         sc.close();
-        return (2 * altezza) + (2 * larghezza);
+
+
+    }
+
+    public static int perimetroRettangolo(int a, int l ) {
+        return (2 * a) + (2 * l);
     }
 
     public static int pariDispari(int n) {
-        if(n % 2 == 0){
+        if (n % 2 == 0) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
     }
 
-    public static int perimetroTriangolo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Inserisci la base del triangolo");
-        int base = sc.nextInt();
-        System.out.println("Inserisci la lunghezza del triangolo");
-        int lunghezza = sc.nextInt();
-        sc.close();
-        return base + lunghezza + base;
+    public static int perimetroTriangolo(int base, int altezza) {
+        return  (base * altezza)/ 2;
     }
 }
